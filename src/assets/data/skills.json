@@ -1,0 +1,200 @@
+[
+  {
+    "title": "Langages de programmation",
+    "items": [
+      { "label": "Java", "level": 80, "icon": { "slug": "java", "pack": "simple-icons" } },
+      {
+        "label": "TypeScript / JavaScript",
+        "level": 75,
+        "icon": { "slug": "typescript", "pack": "simple-icons" }
+      },
+      { "label": "Python", "level": 60, "icon": { "slug": "python", "pack": "simple-icons" } },
+      { "label": "Scala", "level": 55, "icon": { "slug": "scala", "pack": "simple-icons" } },
+      { "label": "C#", "level": 50, "icon": { "slug": "csharp", "pack": "simple-icons" } },
+      { "label": "C / C++", "level": 45, "icon": { "slug": "cplusplus", "pack": "simple-icons" } },
+      { "label": "R", "level": 50, "icon": { "slug": "r", "pack": "simple-icons" } }
+    ]
+  },
+  {
+    "title": "Backend & Frameworks",
+    "items": [
+      {
+        "label": "Spring Boot (Java)",
+        "level": 80,
+        "icon": { "slug": "springboot", "pack": "simple-icons" }
+      },
+      {
+        "label": "NestJS (Node.js)",
+        "level": 75,
+        "icon": { "slug": "nestjs", "pack": "simple-icons" }
+      },
+      {
+        "label": "Flask (Python)",
+        "level": 60,
+        "icon": { "slug": "flask", "pack": "simple-icons" }
+      },
+      { "label": "Express.js", "level": 55, "icon": { "slug": "express", "pack": "simple-icons" } },
+      { "label": "Next.js", "level": 45, "icon": { "slug": "nextdotjs", "pack": "simple-icons" } },
+      {
+        "label": "Socket.io",
+        "level": 50,
+        "icon": { "slug": "socketdotio", "pack": "simple-icons" }
+      },
+      {
+        "label": "Passport.js",
+        "level": 45,
+        "icon": { "slug": "passport", "pack": "simple-icons" }
+      },
+      {
+        "label": "API REST",
+        "level": 75,
+        "icon": { "slug": "openapiinitiative", "pack": "simple-icons" }
+      }
+    ]
+  },
+  {
+    "title": "Frontend & UI",
+    "items": [
+      { "label": "Angular", "level": 75, "icon": { "slug": "angular", "pack": "simple-icons" } },
+      { "label": "React", "level": 75, "icon": { "slug": "react", "pack": "simple-icons" } },
+      { "label": "Vue.js", "level": 60, "icon": { "slug": "vuedotjs", "pack": "simple-icons" } },
+      { "label": "HTML/CSS", "level": 75, "icon": { "slug": "html5", "pack": "simple-icons" } },
+      {
+        "label": "Bootstrap",
+        "level": 60,
+        "icon": { "slug": "bootstrap", "pack": "simple-icons" }
+      },
+      {
+        "label": "Material Tailwind",
+        "level": 55,
+        "icon": { "slug": "tailwindcss", "pack": "simple-icons" }
+      },
+      { "label": "Java Swing", "level": 65, "icon": { "slug": "oracle", "pack": "simple-icons" } }
+    ]
+  },
+  {
+    "title": "Bases de données & ORM",
+    "items": [
+      { "label": "MySQL", "level": 75, "icon": { "slug": "mysql", "pack": "simple-icons" } },
+      {
+        "label": "PostgreSQL",
+        "level": 65,
+        "icon": { "slug": "postgresql", "pack": "simple-icons" }
+      },
+      { "label": "MongoDB", "level": 60, "icon": { "slug": "mongodb", "pack": "simple-icons" } },
+      { "label": "Prisma ORM", "level": 60, "icon": { "slug": "prisma", "pack": "simple-icons" } },
+      { "label": "TypeORM", "level": 55, "icon": { "slug": "typeorm", "pack": "simple-icons" } },
+      {
+        "label": "MERISE, SQL avancé",
+        "level": 75,
+        "icon": { "slug": "sqlite", "pack": "simple-icons" }
+      }
+    ]
+  },
+  {
+    "title": "DevOps & Cloud",
+    "items": [
+      { "label": "Docker", "level": 75, "icon": { "slug": "docker", "pack": "simple-icons" } },
+      {
+        "label": "Git (GitHub & GitLab)",
+        "level": 50,
+        "icon": { "slug": "git", "pack": "simple-icons" }
+      },
+      {
+        "label": "CI/CD (GitHub Actions, GitLab CI)",
+        "level": 70,
+        "icon": { "slug": "githubactions", "pack": "simple-icons" }
+      },
+      {
+        "label": "AWS (S3, EC2, ECS Fargate, RDS, Route53, ACM, ECR, CloudWatch)",
+        "level": 65,
+        "icon": { "slug": "amazonwebservices", "pack": "simple-icons" }
+      },
+      {
+        "label": "Azure (bases)",
+        "level": 40,
+        "icon": { "slug": "microsoftazure", "pack": "simple-icons" }
+      },
+      { "label": "Linux", "level": 60, "icon": { "slug": "linux", "pack": "simple-icons" } },
+      {
+        "label": "Google Analytics 4",
+        "level": 35,
+        "icon": { "slug": "googleanalytics", "pack": "simple-icons" }
+      }
+    ]
+  },
+  {
+    "title": "Méthodes & Qualité",
+    "items": [
+      {
+        "label": "Agile (Scrum)",
+        "level": 75,
+        "icon": { "slug": "scrumalliance", "pack": "simple-icons" }
+      },
+      { "label": "TDD, JUnit", "level": 60, "icon": { "slug": "junit5", "pack": "simple-icons" } },
+      {
+        "label": "UML, Archi hexagonale, MVC",
+        "level": 70,
+        "icon": { "slug": "uml", "pack": "simple-icons" }
+      },
+      {
+        "label": "Clean Code & SOLID",
+        "level": 80,
+        "icon": { "slug": "bookstack", "pack": "simple-icons" }
+      },
+      {
+        "label": "Gestion de projet (Trello)",
+        "level": 70,
+        "icon": { "slug": "trello", "pack": "simple-icons" }
+      }
+    ]
+  },
+  {
+    "title": "Outils & IDE",
+    "items": [
+      {
+        "label": "Git, GitHub, GitLab, GitFlow",
+        "level": 75,
+        "icon": { "slug": "git", "pack": "simple-icons" }
+      },
+      {
+        "label": "IntelliJ IDEA",
+        "level": 75,
+        "icon": { "slug": "intellijidea", "pack": "simple-icons" }
+      },
+      {
+        "label": "VS Code",
+        "level": 75,
+        "icon": { "slug": "visualstudiocode", "pack": "simple-icons" }
+      },
+      { "label": "Cursor", "level": 75, "icon": { "slug": "cursor", "pack": "simple-icons" } },
+      {
+        "label": "Visual Studio",
+        "level": 55,
+        "icon": { "slug": "visualstudio", "pack": "simple-icons" }
+      },
+      {
+        "label": "Visual Paradigm (UML)",
+        "level": 70,
+        "icon": { "slug": "visualparadigm", "pack": "simple-icons" }
+      },
+      { "label": "Prettier", "level": 60, "icon": { "slug": "prettier", "pack": "simple-icons" } },
+      { "label": "ESLint", "level": 60, "icon": { "slug": "eslint", "pack": "simple-icons" } },
+      { "label": "Jest", "level": 55, "icon": { "slug": "jest", "pack": "simple-icons" } }
+    ]
+  },
+  {
+    "title": "Soft skills",
+    "items": [
+      "Curiosité",
+      "Rigueur",
+      "Autonomie",
+      "Travail en équipe",
+      "Communication claire",
+      "Adaptabilité à différents environnements",
+      "Leadership associatif",
+      "Esprit analytique",
+      "Résilience"
+    ]
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "ugram",
+    "name": "Ugram – Réseau social type Instagram",
+    "year": "2025",
+    "summary": "Application web complète (front+back) avec mise en production et CI/CD.",
+    "technologies": ["React", "NestJS", "TypeScript", "AWS (S3, EC2)", "Docker", "GitHub Actions"],
+    "bullets": [
+      "Participation active au développement full‑stack (3 livrables, 2 en prod).",
+      "Recherche avec autocomplétion, gestion multi‑formats d’images."
+    ],
+    "links": {
+      "github": ""
+    },
+    "featured": true,
+    "grade": "111%"
+  },
+  {
+    "id": "ufood",
+    "name": "uFood – Recherche & partage de restaurants",
+    "year": "2024",
+    "summary": "Découverte/partage de restaurants entre amis avec interface soignée.",
+    "technologies": ["HTML", "CSS", "Vue.js", "Bootstrap", "Node.js"],
+    "bullets": ["Recherche, filtres, partage – travail d’équipe de 6."],
+    "links": {
+      "github": ""
+    },
+    "featured": true,
+    "grade": "95%"
+  },
+  {
+    "id": "choixcarburant",
+    "name": "Choix Carburant – App Java pour automobilistes",
+    "year": "2024",
+    "summary": "Comparateur de stations‑service selon critères (prix, services…).",
+    "technologies": ["Java", "Swing", "UML", "Scrum"],
+    "bullets": ["Backend + interface, modélisation UML."],
+    "links": {},
+    "featured": true,
+    "grade": "16/20"
+  },
+  {
+    "id": "ulavalgo",
+    "name": "Ulavalgo – Billetterie & logistique",
+    "year": "2024",
+    "summary": "Gestion d’un festival fictif (API REST, archi hexagonale).",
+    "technologies": ["Java", "Architecture hexagonale", "REST API", "SOLID"],
+    "featured": true,
+    "links": {}
+  },
+  {
+    "id": "compiler",
+    "name": "Compilateur simplifié",
+    "year": "2024",
+    "summary": "Développement d’un compilateur (analyse lexicale → génération de code).",
+    "technologies": ["C#", "Grammaires", "Automates"],
+    "bullets": ["Dév de A à Z, rapport technique."],
+    "featured": true,
+    "grade": "95%",
+    "links": {}
+  },
+  {
+    "id": "starmap",
+    "name": "StarMap – Itinéraires de bus",
+    "year": "2023",
+    "summary": "Moteur de calcul d’itinéraires inspiré du réseau STAR (Rennes).",
+    "technologies": ["Scala", "APIs Google Maps & STAR"],
+    "featured": true,
+    "links": {}
+  },
+  {
+    "id": "slay",
+    "name": "Slay the Spire – Jeu de cartes (Java)",
+    "year": "2023",
+    "summary": "Deck‑builder avec moteur de jeu et interface Swing.",
+    "technologies": ["Java", "Swing"],
+    "grade": "20/20",
+    "links": {}
+  },
+  {
+    "id": "lucioles",
+    "name": "Simulation de lucioles",
+    "year": "2022",
+    "summary": "Simulation d’agents autonomes avec règles biologiques.",
+    "technologies": ["Java"],
+    "links": {}
+  },
+  {
+    "id": "taximeubles",
+    "name": "TaxiMeubles – Esquisse de startup",
+    "year": "2025",
+    "summary": "Plateforme ponctuelle de transport de meubles – pitch et business model.",
+    "technologies": ["Pitch", "Business model", "Étude de marché"],
+    "grade": "92%",
+    "links": {}
+  },
+  {
+    "id": "risk",
+    "name": "Étude de gestion des risques – MonPortail",
+    "year": "2025",
+    "summary": "Application d’ISO/CEI 27001, DIC et recommandations concrètes.",
+    "technologies": ["ISO 27001", "Cybersécurité"],
+    "grade": "93%",
+    "links": {}
+  },
+  {
+    "id": "spec",
+    "name": "Spécification & vérification formelles",
+    "year": "2025",
+    "summary": "Modélisation sous PERFECT & Z, invariants et transitions.",
+    "technologies": ["Langages formels", "Vérification"],
+    "links": {}
+  }
+]

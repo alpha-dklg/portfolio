@@ -1,0 +1,44 @@
+[
+  {
+    "id": "l3-laval",
+    "title": "Licence 3 Informatique – Université Laval (échange Univ. Rennes)",
+    "period": "2024 – 2025",
+    "location": "Québec, Canada",
+    "summary": "Développement web avancé, compilation, qualité logicielle, sécurité, innovation, spécification formelle.",
+    "courses": [
+      "GLO‑3112 Développement avancé d’applications Web",
+      "GLO‑3102 Développement d’applications Web",
+      "IFT‑3101 Compilation & interprétation",
+      "GLO‑4002 Qualité & métriques du logiciel",
+      "SIO‑2102 Sécurité, contrôle & gestion du risque",
+      "SIO‑2104 Gestion de l’innovation technologique",
+      "GLO‑3004 Spécification formelle & vérification",
+      "ENT‑1000 Savoir entreprendre"
+    ],
+    "projects": ["ugram", "ulavalgo", "compiler", "risk", "spec", "ufood"],
+    "highlights": ["Mention : Bien", "Travaux en équipe internationale"]
+  },
+  {
+    "id": "l12-rennes",
+    "title": "Licence 1 & 2 Informatique (ISTN) – Université de Rennes",
+    "period": "2022 – 2024",
+    "location": "Rennes, France",
+    "summary": "POO Java, algo & structures, bases, réseaux, web, génie logiciel.",
+    "projects": ["choixcarburant", "starmap", "slay", "lucioles"],
+    "highlights": ["Mention : Bien", "Projet en Scrum (Choix Carburant)"]
+  },
+  {
+    "id": "l1-educ",
+    "title": "Licence 1 Sciences de l’Éducation – Université Rennes 2",
+    "period": "2021 – 2022",
+    "location": "Rennes, France",
+    "summary": "Année de transition, renforcement méthodologique."
+  },
+  {
+    "id": "double-gn",
+    "title": "Double cursus – ISSEG (Sciences de l’Éducation) & UBO (Informatique)",
+    "period": "2019 – 2021",
+    "location": "Conakry, Guinée",
+    "summary": "Bases en algorithmique, C, HTML/CSS, math appliquées. Mention : Bien."
+  }
+]

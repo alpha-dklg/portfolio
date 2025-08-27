@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Stagiaire Développeur Web",
+    "company": "Santigui du Moulin",
+    "period": "05/2025 – 07/2025",
+    "location": "Rennes, France",
+    "bullets": [
+      "Conception & dev. e‑commerce (client & admin)",
+      "Objectifs : produits, commandes, stocks"
+    ],
+    "tech": ["Angular", "Spring Boot", "MySQL", "Docker", "AWS"]
+  }
+]
