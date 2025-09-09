@@ -37,3 +37,7 @@ Thumbs.db
 # Misc
 *.tgz
 
+# Videos (too large for GitHub)
+src/assets/videos/
+*.mp4
+

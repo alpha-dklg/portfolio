@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   ChangeDetectionStrategy,
   HostListener,
   ChangeDetectorRef,
@@ -9,6 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AvatarModalComponent } from './modals/avatar-modal.component';
 import { EducationModalComponent } from './modals/education-modal.component';
+import { ExperienceModalComponent } from './modals/experience-modal.component';
 import { ProjectModalComponent } from './modals/project-modal.component';
 import {
   ContactLink,
@@ -19,18 +21,19 @@ import {
   SkillItem,
   HeroIntroData,
   AboutData,
+  SkillsViewModel,
 } from './models';
 import { PortfolioDataService } from './portfolio-data.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, AvatarModalComponent, EducationModalComponent, ProjectModalComponent],
+  imports: [CommonModule, AvatarModalComponent, EducationModalComponent, ExperienceModalComponent, ProjectModalComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   projects: Project[] = [];
   featuredProjects: Project[] = [];
   education: Education[] = [];
@@ -44,9 +47,14 @@ export class AppComponent implements OnInit {
     bullets?: string[];
     tech?: string[];
     refId?: string;
+    image?: string;
+    images?: string[];
+    summary?: string;
+    mention?: string;
     sortTime: number;
   }> = [];
   skills: SkillGroup[] = [];
+  skillsVM?: SkillsViewModel;
   contacts: ContactLink[] = [];
   hero?: HeroIntroData;
   about?: AboutData;
@@ -57,10 +65,18 @@ export class AppComponent implements OnInit {
 
   selectedEducation?: Education;
   selectedProject?: Project;
+  selectedExperience?: Experience;
   showAvatarModal = false;
   activeSectionId?: string;
   isAtTop = true;
   private readonly heroBgThreshold = 80;
+  readonly defaultParcoursImage = 'assets/images/img_banniere.png';
+
+  // Parcours filters/sorting
+  parcoursFilter: 'all' | 'education' | 'experience' = 'all';
+  parcoursSort: 'asc' | 'desc' = 'desc';
+  carouselIndex: Record<string, number> = {};
+  private autoScrollIntervalId?: any;
 
   get currentYear(): number {
     return new Date().getFullYear();
@@ -81,6 +97,7 @@ export class AppComponent implements OnInit {
       this.projects = projects;
       this.featuredProjects = projects.filter((p) => Boolean(p.featured));
       this.cdr.markForCheck();
+      setTimeout(() => this.setupProjectCardsObserver());
     });
     this.dataService.getAbout().subscribe((data) => {
       this.about = data;
@@ -91,15 +108,23 @@ export class AppComponent implements OnInit {
       this.rebuildTimeline();
       this.cdr.markForCheck();
       setTimeout(() => this.setupRevealObserver());
+      this.startCarouselAuto();
     });
     this.dataService.getExperience().subscribe((items) => {
       this.experience = items;
       this.rebuildTimeline();
       this.cdr.markForCheck();
       setTimeout(() => this.setupRevealObserver());
+      this.startCarouselAuto();
     });
+    // Keep legacy load to not break anything else
     this.dataService.getSkills().subscribe((items) => {
       this.skills = items;
+      this.cdr.markForCheck();
+    });
+    // New unified skills view model for rendering
+    this.dataService.getSkillsViewModel().subscribe((vm) => {
+      this.skillsVM = vm;
       this.cdr.markForCheck();
       setTimeout(() => this.setupSoftSkillsObserver());
     });
@@ -110,6 +135,10 @@ export class AppComponent implements OnInit {
     setTimeout(() => this.setupRevealObserver());
     setTimeout(() => this.observeSections());
     this.isAtTop = window.scrollY <= this.heroBgThreshold;
+  }
+
+  ngOnDestroy(): void {
+    this.stopCarouselAuto();
   }
 
   @HostListener('document:keydown.escape')
@@ -141,6 +170,17 @@ export class AppComponent implements OnInit {
   }
   openProject(id: string) {
     this.selectedProject = this.projects.find((p) => p.id === id);
+  }
+  openExperience(title: string, company: string) {
+    this.selectedExperience = this.experience.find((e) => e.title === title && e.company === company);
+  }
+
+  onParcoursItemClick(item: any) {
+    if (item.type === 'education' && item.refId) {
+      this.openEducation(item.refId);
+    } else if (item.type === 'experience') {
+      this.openExperience(item.title, item.company || '');
+    }
   }
   closeModals() {
     this.selectedEducation = undefined;
@@ -180,6 +220,10 @@ export class AppComponent implements OnInit {
   projectNameById(id: string): string {
     const project = this.projects.find((p) => p.id === id);
     return project?.name ?? id;
+  }
+
+  projectTechById(id: string): string[] | undefined {
+    return this.projects.find((p) => p.id === id)?.technologies;
   }
 
   trackById(_: number, item: any) {
@@ -281,33 +325,59 @@ export class AppComponent implements OnInit {
     observer.observe(container);
   }
 
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && !img.src.includes('couverture_default.webp')) {
+      img.src = 'assets/images/projects/couverture_default.webp';
+    }
+  }
+
+  private setupProjectCardsObserver(): void {
+    if (typeof window === 'undefined') return;
+    const container = document.querySelector('.project-cards') as HTMLElement | null;
+    if (!container) return;
+    const reveal = () => container.classList.add('project-cards-in');
+    const supportsIO = 'IntersectionObserver' in window;
+    if (!supportsIO) {
+      reveal();
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            reveal();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(container);
+  }
+
   skillIconKey(label: string): string {
     const l = label.toLowerCase();
     if (/angular/.test(l)) return 'angular';
-    if (/react/.test(l)) return 'react';
-    if (/vue/.test(l)) return 'vue';
-    if (/typescript/.test(l)) return 'typescript';
     if (/java\b/.test(l) && !/javascript/.test(l)) return 'java';
-    if (/spring/.test(l)) return 'spring';
-    if (/python/.test(l)) return 'python';
-    if (/flask/.test(l)) return 'flask';
-    if (/node|express/.test(l)) return 'node';
-    if (/nestjs/.test(l)) return 'nestjs';
-    if (/nextjs/.test(l)) return 'nextjs';
-    if (/mysql/.test(l)) return 'mysql';
-    if (/postgres/.test(l)) return 'postgres';
-    if (/mongo/.test(l)) return 'mongodb';
+    if (/(langage|language).*programm|paradigm|paradigme/.test(l)) return 'code';
+    if (/(mysql|postgres|mongo|sql|nosql|base de donn|base de don|database)/.test(l)) return 'database';
     if (/docker/.test(l)) return 'docker';
-    if (/aws/.test(l)) return 'aws';
-    if (/azure/.test(l)) return 'azure';
-    if (/linux/.test(l)) return 'linux';
-    if (/bootstrap/.test(l)) return 'bootstrap';
-    if (/tailwind/.test(l)) return 'tailwind';
-    if (/scala/.test(l)) return 'scala';
-    if (/c#/.test(l)) return 'csharp';
-    if (/prisma/.test(l)) return 'prisma';
-    if (/typeorm/.test(l)) return 'typeorm';
+    if (/aws|amazon web services|amazonwebservices/.test(l)) return 'aws';
+    if (/(méthodologies|methodologies|qualité|quality|agile|scrum|tdd|uml)/.test(l)) return 'method';
+    if (/(outils|environnements|tools|visual studio code|vscode|ide|intellij)/.test(l)) return 'tools';
     return 'generic';
+  }
+
+  skillLevelPercent(level?: string): number {
+    if (!level) return 60;
+    const l = level.toLowerCase();
+    if (/confirmé/.test(l) && /intermédiaire/.test(l)) return 75;
+    if (/confirmé/.test(l)) return 90;
+    if (/bon\s*niveau/.test(l)) return 70;
+    if (/intermédiaire/.test(l)) return 55;
+    if (/débutant|beginner/.test(l)) return 30;
+    return 60;
   }
 
   private rebuildTimeline(): void {
@@ -320,6 +390,10 @@ export class AppComponent implements OnInit {
       bullets?: string[];
       tech?: string[];
       refId?: string;
+      image?: string;
+      images?: string[];
+      summary?: string;
+      mention?: string;
       sortTime: number;
     }> = [];
     if (this.experience?.length) {
@@ -332,6 +406,7 @@ export class AppComponent implements OnInit {
           location: x.location,
           bullets: x.bullets,
           tech: x.tech,
+          image: (x as any).image,
           sortTime: this.parsePeriodToSortValue(x.period),
         });
       }
@@ -344,6 +419,10 @@ export class AppComponent implements OnInit {
           period: e.period,
           location: e.location,
           refId: e.id,
+          summary: e.summary,
+          image: (e as any).image,
+          images: (e as any).images,
+          mention: this.extractMention(e),
           sortTime: this.parsePeriodToSortValue(e.period),
         });
       }
@@ -351,6 +430,7 @@ export class AppComponent implements OnInit {
     items.sort((a, b) => b.sortTime - a.sortTime);
     this.timelineItems = items;
     this.cdr.markForCheck();
+    this.startCarouselAuto();
   }
 
   private parsePeriodToSortValue(period: string): number {
@@ -382,5 +462,78 @@ export class AppComponent implements OnInit {
       return year * 12 + 12;
     }
     return 0;
+  }
+
+  private extractMention(edu: Education): string | undefined {
+    if (edu.mention !== undefined) {
+      return edu.mention || undefined;
+    }
+    const fromHighlights = edu.highlights?.find((h) => /mention/i.test(h));
+    if (fromHighlights) return fromHighlights;
+    if (edu.summary) {
+      const m = edu.summary.match(/mention\s*:\s*([^.;,]+)/i);
+      if (m && m[1]) return `Mention : ${m[1].trim()}`;
+    }
+    return undefined;
+  }
+
+  // Computed filtered/sorted list for parcours view
+  get filteredSortedTimeline() {
+    let list = this.timelineItems;
+    if (this.parcoursFilter !== 'all') {
+      list = list.filter((x) => x.type === this.parcoursFilter);
+    }
+    const sorted = [...list].sort((a, b) =>
+      this.parcoursSort === 'desc' ? b.sortTime - a.sortTime : a.sortTime - b.sortTime
+    );
+    return sorted;
+  }
+
+  setParcoursFilter(filter: 'all' | 'education' | 'experience') {
+    this.parcoursFilter = filter;
+    this.cdr.markForCheck();
+    setTimeout(() => this.setupRevealObserver());
+    this.startCarouselAuto();
+  }
+
+  setParcoursSort(order: 'asc' | 'desc') {
+    this.parcoursSort = order;
+    this.cdr.markForCheck();
+    setTimeout(() => this.setupRevealObserver());
+    this.startCarouselAuto();
+  }
+
+  // Simple carousel controls (auto-scroll every 4s)
+  nextCarousel(key: string, total: number) {
+    const current = this.carouselIndex[key] || 0;
+    this.carouselIndex[key] = (current + 1) % total;
+    this.cdr.markForCheck();
+  }
+  prevCarousel(key: string, total: number) {
+    const current = this.carouselIndex[key] || 0;
+    this.carouselIndex[key] = (current - 1 + total) % total;
+    this.cdr.markForCheck();
+  }
+
+  carouselKey(item: { type: 'experience' | 'education'; title: string }): string {
+    return `${item.type}:${item.title}`;
+  }
+
+  private startCarouselAuto(): void {
+    this.stopCarouselAuto();
+    this.autoScrollIntervalId = setInterval(() => {
+      const list = this.filteredSortedTimeline;
+      for (const it of list) {
+        const total = it.images?.length || 0;
+        if (total > 1) this.nextCarousel(this.carouselKey(it), total);
+      }
+    }, 2000);
+  }
+
+  private stopCarouselAuto(): void {
+    if (this.autoScrollIntervalId) {
+      clearInterval(this.autoScrollIntervalId);
+      this.autoScrollIntervalId = undefined;
+    }
   }
 }

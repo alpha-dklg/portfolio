@@ -117,3 +117,188 @@
   outline-offset: 3px;
 }
 
+/* Skills section */
+.softskills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 24px 0;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.softskills-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e8eef6; /* lighter for contrast */
+  color: #0f172a; /* dark text for readability */
+  font-weight: 700;
+  border: 1px solid #cbd5e1;
+}
+
+.grid.skill-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+@media (max-width: 1100px) {
+  .grid.skill-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .grid.skill-cards { grid-template-columns: 1fr; }
+}
+
+.skill-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+.sc-head {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+.sc-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.sc-title {
+  font-weight: 700;
+}
+.sc-level {
+  background: #e8eef6; /* lighter for contrast */
+  color: #0f172a; /* dark text for readability */
+  border: 1px solid #cbd5e1;
+}
+.sc-details {
+  margin: 10px 0 0 0;
+  color: var(--muted-fg);
+  line-height: 1.5;
+}
+.sc-progress {
+  margin-top: 10px;
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+.sc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #93c5fd, #2563eb);
+  border-radius: 999px 0 0 999px;
+  transition: width .3s ease;
+}
+
+/* Parcours (timeline) */
+.parcours-grid {
+  position: relative;
+  margin-top: 24px;
+}
+.parcours-grid::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(#e2e8f0, #cbd5e1);
+}
+
+.parcours-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 56px 0;
+  padding-top: 140px; /* leave space for the larger logo node so it doesn't overlap */
+}
+
+.parcours-content {
+  grid-column: 1 / span 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  z-index: 2; /* keep content above logo in normal state */
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.parcours-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+.parcours-row.flip .parcours-content {
+  grid-column: 2 / span 1;
+}
+.parcours-row:not(.flip) .parcours-content { margin-right: 140px; }
+.parcours-row.flip .parcours-content { margin-left: 140px; }
+
+/* Styles spécifiques au composant - les styles généraux sont dans styles.css */
+.pv-img,
+.parcours-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show logos fully inside the circle */
+  transition: transform .2s ease;
+}
+/* Effet hover géré dans styles.css */
+
+/* Carousel styles gérés dans styles.css */
+
+.pc-head .pc-title {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 6px 0 2px 0;
+}
+.pc-meta.small { color: var(--muted-fg); }
+.pc-bullets { margin: 8px 0 0 18px; }
+.pc-bullets li { margin: 4px 0; }
+.pc-cat { font-weight: 800; font-size: 12px; letter-spacing: .4px; text-transform: uppercase; }
+.pc-cat.edu { color: #2563eb; }
+.pc-cat.exp { color: #16a34a; }
+
+@media (max-width: 900px) {
+  .parcours-grid::before {
+    left: 56px;
+    transform: none;
+  }
+  .parcours-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 44px 0;
+    padding-left: 140px;
+  }
+  .parcours-row.flip .parcours-content {
+    grid-column: 1 / span 1;
+  }
+  .parcours-row:not(.flip) .parcours-content,
+  .parcours-row.flip .parcours-content { margin: 0; }
+  .parcours-visual {
+    left: 56px;
+    transform: translate(-50%, -10px);
+  }
+}
+

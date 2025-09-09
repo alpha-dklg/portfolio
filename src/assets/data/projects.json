@@ -7,13 +7,15 @@
     "technologies": ["React", "NestJS", "TypeScript", "AWS (S3, EC2)", "Docker", "GitHub Actions"],
     "bullets": [
       "Participation active au développement full‑stack (3 livrables, 2 en prod).",
-      "Recherche avec autocomplétion, gestion multi‑formats d’images."
+      "Recherche avec autocomplétion, hashtag, description, gestion multi‑formats d'images."
     ],
     "links": {
       "github": ""
     },
     "featured": true,
-    "grade": "111%"
+    "grade": "111%",
+    "coverImage": "assets/images/projects/couverture_ugram.png",
+    "demoVideo": "https://youtu.be/PYAa5BB2ENo"
   },
   {
     "id": "ufood",
@@ -21,12 +23,14 @@
     "year": "2024",
     "summary": "Découverte/partage de restaurants entre amis avec interface soignée.",
     "technologies": ["HTML", "CSS", "Vue.js", "Bootstrap", "Node.js"],
-    "bullets": ["Recherche, filtres, partage – travail d’équipe de 6."],
+    "bullets": ["Recherche, filtres, partage – travail d'équipe de 6."],
     "links": {
       "github": ""
     },
     "featured": true,
-    "grade": "95%"
+    "grade": "95%",
+    "coverImage": "assets/images/projects/couverture_ufood.png",
+    "demoVideo": "https://youtu.be/mey3xjBaV1k"
   },
   {
     "id": "choixcarburant",
@@ -37,78 +41,54 @@
     "bullets": ["Backend + interface, modélisation UML."],
     "links": {},
     "featured": true,
-    "grade": "16/20"
+    "grade": "16/20",
+    "coverImage": "assets/images/projects/couverture_choix-carburants.png",
+    "demoVideo": "https://youtu.be/JQawHWzO9Ro"
   },
   {
     "id": "ulavalgo",
-    "name": "Ulavalgo – Billetterie & logistique",
+    "name": "Ulavalgo – Festival interplanétaire",
     "year": "2024",
-    "summary": "Gestion d’un festival fictif (API REST, archi hexagonale).",
+    "summary": "Application de gestion de billetterie et logistique pour un festival fictif, réalisée en Java avec principes SOLID.",
     "technologies": ["Java", "Architecture hexagonale", "REST API", "SOLID"],
+    "bullets": [
+      "Développement des modules de transport et de billetterie.",
+      "Intégration en équipe avec méthodologie agile."
+    ],
+    "links": {},
     "featured": true,
-    "links": {}
+    "grade": "75%"
   },
   {
     "id": "compiler",
     "name": "Compilateur simplifié",
     "year": "2024",
-    "summary": "Développement d’un compilateur (analyse lexicale → génération de code).",
-    "technologies": ["C#", "Grammaires", "Automates"],
-    "bullets": ["Dév de A à Z, rapport technique."],
+    "summary": "Projet académique complet allant de l’analyse lexicale à la génération de code en C#.",
+    "technologies": ["C#", "Grammaire formelle", "Architecture de compilateur"],
+    "bullets": [
+      "Développement du compilateur de A à Z (analyse lexicale, syntaxique, génération de code).",
+      "Étude comparative avec le compilateur Java et rédaction d’un rapport technique."
+    ],
+    "links": {},
     "featured": true,
-    "grade": "95%",
-    "links": {}
+    "grade": "95%"
   },
   {
-    "id": "starmap",
-    "name": "StarMap – Itinéraires de bus",
+    "id": "slay-the-spire",
+    "name": "Slay the Spire – Jeu de cartes stratégique",
     "year": "2023",
-    "summary": "Moteur de calcul d’itinéraires inspiré du réseau STAR (Rennes).",
-    "technologies": ["Scala", "APIs Google Maps & STAR"],
+    "summary": "Reproduction d’un jeu de deck-building en Java avec interface graphique.",
+    "technologies": ["Java", "Swing", "POO"],
+    "bullets": [
+      "Développement intégral du moteur de jeu et de l’interface utilisateur.",
+      "Ajout de fonctionnalités bonus au-delà du cahier des charges initial."
+    ],
+    "links": {
+      "github": ""
+    },
     "featured": true,
-    "links": {}
-  },
-  {
-    "id": "slay",
-    "name": "Slay the Spire – Jeu de cartes (Java)",
-    "year": "2023",
-    "summary": "Deck‑builder avec moteur de jeu et interface Swing.",
-    "technologies": ["Java", "Swing"],
     "grade": "20/20",
-    "links": {}
-  },
-  {
-    "id": "lucioles",
-    "name": "Simulation de lucioles",
-    "year": "2022",
-    "summary": "Simulation d’agents autonomes avec règles biologiques.",
-    "technologies": ["Java"],
-    "links": {}
-  },
-  {
-    "id": "taximeubles",
-    "name": "TaxiMeubles – Esquisse de startup",
-    "year": "2025",
-    "summary": "Plateforme ponctuelle de transport de meubles – pitch et business model.",
-    "technologies": ["Pitch", "Business model", "Étude de marché"],
-    "grade": "92%",
-    "links": {}
-  },
-  {
-    "id": "risk",
-    "name": "Étude de gestion des risques – MonPortail",
-    "year": "2025",
-    "summary": "Application d’ISO/CEI 27001, DIC et recommandations concrètes.",
-    "technologies": ["ISO 27001", "Cybersécurité"],
-    "grade": "93%",
-    "links": {}
-  },
-  {
-    "id": "spec",
-    "name": "Spécification & vérification formelles",
-    "year": "2025",
-    "summary": "Modélisation sous PERFECT & Z, invariants et transitions.",
-    "technologies": ["Langages formels", "Vérification"],
-    "links": {}
+    "coverImage": "assets/images/projects/couverture_slay-the-spire.png",
+    "demoVideo": "https://youtu.be/bUKTNTEszs4"
   }
 ]

@@ -1,8 +1,8 @@
 {
   "titleLines": ["Mamadou Alpha", "DIALLO"],
-  "subtitle": "Développeur fullstack | DevOps & Cloud | Passionné d’innovation",
+  "subtitle": "Développeur fullstack",
   "meta": ["Angular", "React", "Spring Boot", "NestJS", "Docker", "CI/CD", "AWS"],
   "lead": "Étudiant en Master 1 d’ingénierie logicielle à l’Université de Rennes – ISTIC, spécialisé en développement fullstack, je peux intervenir du frontend au backend jusqu’à la mise en production de projets logiciels.\n Mon parcours, enrichi par une expérience internationale au Canada, m’a appris à allier rigueur technique, travail en équipe et ouverture multiculturelle.\n Mon ambition est de contribuer à des projets concrets et innovants en apportant une réelle valeur ajoutée.",
-  "cvHref": "assets/cv/MamadouAlpha_Diallo_CV_Alternance2025.pdf",
+  "cvHref": "assets/cv/Alternance_developpeur-full-stack.pdf",
   "bannerImage": "assets/images/img_banniere.png"
 }

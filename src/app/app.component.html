@@ -189,10 +189,60 @@
 <section id="skills" class="section">
   <div class="container">
     <h2>Compétences</h2>
-    <div class="softskills" *ngIf="softSkills.length">
-      <span class="pill" *ngFor="let s of softSkills">{{ s }}</span>
+    <p class="lead" *ngIf="skillsVM?.intro">{{ skillsVM?.intro }}</p>
+
+    <div class="softskills" *ngIf="(skillsVM?.softSkills?.length || softSkills.length)">
+      <span class="pill" *ngFor="let s of (skillsVM?.softSkills?.length ? skillsVM?.softSkills : softSkills)">{{ s }}</span>
     </div>
-    <div class="grid cards">
+
+    <div class="grid skill-cards" *ngIf="skillsVM as vm">
+      <div class="skill-card" *ngFor="let e of vm.entries; trackBy: trackById">
+        <div class="sc-head">
+          <div class="sc-icon" [ngSwitch]="skillIconKey(e.label)">
+            <svg *ngSwitchCase="'angular'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#dd0031" d="M12 1l9.5 3.5-1.7 14.6L12 23l-7.8-3.9L2.5 4.5 12 1z" />
+              <path fill="#fff" d="M12 4.6l5.2 1.9-1.3 11.1L12 19.7l-3.9-2.1L6.8 6.5 12 4.6zm0 2.9L9.9 14h1.5l.4-1.3h2.3l.4 1.3H16L14 7.5h-4zm1 3.8l.7 2.2h-1.4l.7-2.2z" />
+            </svg>
+            <svg *ngSwitchCase="'java'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#ea2d2e" d="M12 2s3.2 2 0 4c3.5-1 4-4 0-4zm-2 6s-2.4 1.2 0 2c2.6.8 6.4.4 8-1-2.4 0-4.7 0-8-1zm8 4c-1.8 1.4-7.2 1.8-10 1-2.8-.8-1-2 1-2 4 .2 8-.4 9 1z" />
+            </svg>
+            <svg *ngSwitchCase="'code'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#0ea5e9" d="M8.5 7L4 11.5 8.5 16l1.4-1.4L6.8 11.5l3.1-3.1L8.5 7zm7 0l-1.4 1.4 3.1 3.1-3.1 3.1L15.5 16l4.5-4.5L15.5 7z" />
+            </svg>
+            <svg *ngSwitchCase="'database'" viewBox="0 0 24 24" aria-hidden="true">
+              <ellipse cx="12" cy="5" rx="8" ry="3" fill="#64748b" />
+              <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5" fill="#64748b" />
+              <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" fill="#94a3b8" />
+            </svg>
+            <svg *ngSwitchCase="'docker'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#0db7ed" d="M3 12h18c0 4-3 7-8 7H7c-2 0-4-2-4-4v-3zM7 9h3v2H7V9zm4 0h3v2h-3V9zm4 0h3v2h-3V9z" />
+            </svg>
+            <svg *ngSwitchCase="'aws'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#FF9900" d="M4 16c2.5 2 5.5 3 8 3s5.5-1 8-3v2c-2.5 2-5.5 3-8 3s-5.5-1-8-3v-2z" />
+              <path fill="#111827" d="M6 8h12v2H6zM6 12h8v2H6z" />
+            </svg>
+            <svg *ngSwitchCase="'method'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#10b981" d="M4 6h6v4H4zM14 6h6v4h-6zM4 14h6v4H4zM14 14h6v4h-6z" />
+            </svg>
+            <svg *ngSwitchCase="'tools'" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#334155" d="M8 3l3 3-2 2L6 5 8 3zm8 8l3 3-6 6H10v-3l6-6z" />
+            </svg>
+            <svg *ngSwitchDefault viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8" fill="#cbd5e1" />
+            </svg>
+          </div>
+          <div class="sc-title">{{ e.label }}</div>
+          <span class="badge sc-level" *ngIf="e.level">{{ e.level }}</span>
+        </div>
+        <div class="sc-progress" role="meter" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="skillLevelPercent(e.level)">
+          <div class="sc-progress-fill" [style.width.%]="skillLevelPercent(e.level)"></div>
+        </div>
+        <p class="sc-details" *ngIf="e.details">{{ e.details }}</p>
+      </div>
+    </div>
+
+    <!-- Fallback to legacy grouped view if needed -->
+    <div class="grid cards" *ngIf="!skillsVM">
       <div
         class="card"
         *ngFor="let group of skills; let i = index; trackBy: trackById"
@@ -205,62 +255,9 @@
               <div class="skill-row">
                 <div class="skill-head">
                   <div class="skill-icon" [ngSwitch]="skillIconKey(item.label)">
-                    <ng-container *ngIf="item.iconSvg; else iconSwitch">
-                      <span [innerHTML]="item.iconSvg"></span>
-                    </ng-container>
-                    <ng-template #iconSwitch>
-                      <svg *ngSwitchCase="'angular'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          fill="#dd0031"
-                          d="M12 1l9.5 3.5-1.7 14.6L12 23l-7.8-3.9L2.5 4.5 12 1z"
-                        />
-                        <path
-                          fill="#fff"
-                          d="M12 4.6l5.2 1.9-1.3 11.1L12 19.7l-3.9-2.1L6.8 6.5 12 4.6zm0 2.9L9.9 14h1.5l.4-1.3h2.3l.4 1.3H16L14 7.5h-4zm1 3.8l.7 2.2h-1.4l.7-2.2z"
-                        />
-                      </svg>
-                      <svg *ngSwitchCase="'react'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          fill="#61dafb"
-                          d="M14.23 12c0 1.23-1 2.23-2.23 2.23S9.77 13.23 9.77 12s1-2.23 2.23-2.23S14.23 10.77 14.23 12z"
-                        />
-                        <path
-                          fill="#61dafb"
-                          d="M12 4.5c-1.3 0-2.6.1-3.8.4C6.7 5.2 5.3 5.7 4.3 6.4c-1 .7-1.7 1.5-2 2.3-.3.8-.3 1.7 0 2.5.3.8 1 1.6 2 2.3 1 .7 2.4 1.2 3.9 1.5 1.2.3 2.5.4 3.8.4s2.6-.1 3.8-.4c1.5-.3 2.9-.8 3.9-1.5s1.7-1.5 2-2.3c.3-.8.3-1.7 0-2.5-.3-.8-1-1.6-2-2.3s-2.4-1.2-3.9-1.5c-1.2-.3-2.5-.4-3.8-.4z"
-                          fill-opacity="0"
-                          stroke="#61dafb"
-                        />
-                      </svg>
-                      <svg *ngSwitchCase="'typescript'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="#3178c6" d="M3 3h18v18H3z" />
-                        <path
-                          fill="#fff"
-                          d="M8 8h8v2h-3v6h-2v-6H8zM17.2 18c-.9 0-1.8-.4-2.3-1.1l1.2-1.2c.3.4.7.6 1.1.6.5 0 .8-.3.8-.7 0-.4-.3-.6-.9-.9l-.3-.1c-1-.4-1.7-1-1.7-2.1 0-1.1.8-1.9 2-1.9.9 0 1.6.3 2.1 1l-1.2 1.2c-.3-.3-.6-.4-.9-.4-.4 0-.7.3-.7.6 0 .4.3.6 1 .9l.3.1c1.2.5 1.8 1.1 1.8 2.2 0 1.3-1 2.1-2.3 2.1z"
-                        />
-                      </svg>
-                      <svg *ngSwitchCase="'java'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          fill="#ea2d2e"
-                          d="M12 2s3.2 2 0 4c3.5-1 4-4 0-4zm-2 6s-2.4 1.2 0 2c2.6.8 6.4.4 8-1-2.4 0-4.7 0-8-1zm8 4c-1.8 1.4-7.2 1.8-10 1-2.8-.8-1-2 1-2 4 .2 8-.4 9 1z"
-                        />
-                      </svg>
-                      <svg *ngSwitchCase="'python'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="#3870a1" d="M12 2c5.5 0 5 3 5 3v4H7V5s-.5-3 5-3z" />
-                        <path fill="#ffd43b" d="M12 22c-5.5 0-5-3-5-3v-4h10v4s.5 3-5 3z" />
-                      </svg>
-                      <svg *ngSwitchCase="'node'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill="#83cd29" d="M12 2l9 5v10l-9 5-9-5V7l9-5z" />
-                      </svg>
-                      <svg *ngSwitchCase="'docker'" viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          fill="#0db7ed"
-                          d="M3 12h18c0 4-3 7-8 7H7c-2 0-4-2-4-4v-3zM7 9h3v2H7V9zm4 0h3v2h-3V9zm4 0h3v2h-3V9z"
-                        />
-                      </svg>
-                      <svg *ngSwitchDefault viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="12" r="8" fill="#cbd5e1" />
-                      </svg>
-                    </ng-template>
+                    <svg *ngSwitchDefault viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="8" fill="#cbd5e1" />
+                    </svg>
                   </div>
                   <div class="skill-label">{{ item.label }}</div>
                   <div class="skill-percent">{{ item.level || 0 | number: '1.0-0' }}%</div>
@@ -295,32 +292,58 @@
 <section id="parcours" class="section">
   <div class="container">
     <h2>Parcours</h2>
-    <div class="timeline">
+    <div class="parcours-toolbar" role="toolbar" aria-label="Filtres parcours">
+      <div class="seg">
+        <button class="seg-btn" [class.active]="parcoursFilter === 'all'" (click)="setParcoursFilter('all')">Tous</button>
+        <button class="seg-btn" [class.active]="parcoursFilter === 'education'" (click)="setParcoursFilter('education')">Formations</button>
+        <button class="seg-btn" [class.active]="parcoursFilter === 'experience'" (click)="setParcoursFilter('experience')">Expériences</button>
+      </div>
+      <div class="seg">
+        <button class="seg-btn" [class.active]="parcoursSort === 'desc'" (click)="setParcoursSort('desc')">Plus récent → ancien</button>
+        <button class="seg-btn" [class.active]="parcoursSort === 'asc'" (click)="setParcoursSort('asc')">Plus ancien → récent</button>
+      </div>
+    </div>
+    <div class="parcours-grid">
       <div
-        class="tl-item reveal"
-        *ngFor="let item of timelineItems; trackBy: trackById"
-        [class.edu]="item.type === 'education'"
+        class="parcours-row reveal"
+        *ngFor="let item of filteredSortedTimeline; let i = index; trackBy: trackById"
+        [class.is-edu]="item.type === 'education'"
+        [class.flip]="i % 2 === 1"
       >
-        <div class="tl-dot"></div>
-        <div class="tl-content">
-          <div class="tl-title">
-            <ng-container *ngIf="item.type === 'experience'; else eduTitle"
-              >{{ item.title }} – {{ item.company }}</ng-container
-            >
-            <ng-template #eduTitle>{{ item.title }}</ng-template>
+        <div class="parcours-visual" aria-hidden="true" (click)="onParcoursItemClick(item)">
+          <ng-container *ngIf="item.images?.length; else singleImage">
+            <div class="pv-carousel" [attr.role]="'region'" aria-label="Logos établissement">
+              <img [src]="item.images![(carouselIndex[carouselKey(item)] || 0) % item.images!.length]" alt="Logo" class="pv-img" />
+            </div>
+          </ng-container>
+          <ng-template #singleImage>
+            <img class="pv-img" [src]="item.image || defaultParcoursImage" alt="Logo" />
+          </ng-template>
+        </div>
+        <div class="parcours-content" (click)="onParcoursItemClick(item)">
+          <div class="pc-head">
+            <div class="pc-topline">
+              <span class="pc-cat edu" *ngIf="item.type === 'education'">Formation</span>
+              <span class="pc-cat exp" *ngIf="item.type === 'experience'">Expérience</span>
+            </div>
+            <div class="pc-title">
+              <ng-container *ngIf="item.type === 'experience'; else eduTitle2">
+                {{ item.title }} – {{ item.company }}
+              </ng-container>
+              <ng-template #eduTitle2>{{ item.title }}</ng-template>
+            </div>
+            <div class="pc-meta small">{{ item.period }} · {{ item.location }}</div>
+            <span class="badge mention" *ngIf="item.mention as m">{{ m }}</span>
           </div>
-          <div class="small">{{ item.period }} · {{ item.location }}</div>
+          <p class="pc-summary" *ngIf="item.summary">{{ item.summary }}</p>
           <ng-container *ngIf="item.type === 'experience'">
-            <ul>
+            <ul class="pc-bullets" *ngIf="item.bullets?.length">
               <li *ngFor="let b of item.bullets">{{ b }}</li>
             </ul>
             <div class="kv" *ngIf="item.tech?.length">
               <span class="chip" *ngFor="let t of item.tech">{{ t }}</span>
             </div>
           </ng-container>
-          <div class="cta" *ngIf="item.type === 'education' && item.refId">
-            <button class="button secondary" (click)="openEducation(item.refId)">Détails</button>
-          </div>
         </div>
       </div>
     </div>
@@ -329,40 +352,44 @@
 
 <section id="projects" class="section">
   <div class="container">
-    <h2>Projets (sélection)</h2>
-    <p class="lead">
+    <h2>Projets académiques – sélection</h2>
+    <p class="lead text-center">
       Un échantillon de projets académiques et techniques menés en équipe, avec rôles concrets et
       résultats.
     </p>
-    <div class="grid cards">
-      <div class="card" *ngFor="let p of featuredProjects; trackBy: trackById">
-        <div class="badge">{{ p.year || 'Projet' }}</div>
-        <h3>{{ p.name }}</h3>
-        <p>{{ p.summary }}</p>
-        <div class="kv">
-          <span class="chip" *ngFor="let t of p.technologies">{{ t }}</span>
+    <div class="grid project-cards">
+      <div class="project-card" *ngFor="let p of featuredProjects; trackBy: trackById" (click)="openProject(p.id)">
+        <div class="project-cover">
+          <img [src]="p.coverImage || 'assets/images/projects/couverture_default.webp'" [alt]="p.name" (error)="onImageError($event)" />
         </div>
-        <div class="kv" *ngIf="p.grade">
-          <span class="badge">Note : {{ p.grade }}</span>
-        </div>
-        <div class="cta" style="margin-top: 10px">
-          <button class="button secondary" (click)="openProject(p.id)">Détails</button>
-          <a
-            class="button"
-            *ngIf="p.links?.github"
-            [href]="p.links?.github"
-            target="_blank"
-            rel="noopener"
-            >Code</a
-          >
-          <a
-            class="button"
-            *ngIf="p.links?.demo"
-            [href]="p.links?.demo"
-            target="_blank"
-            rel="noopener"
-            >Démo</a
-          >
+        <div class="project-content">
+          <div class="badge">{{ p.year || 'Projet' }}</div>
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.summary }}</p>
+          <div class="kv">
+            <span class="chip" *ngFor="let t of p.technologies">{{ t }}</span>
+          </div>
+          <div class="kv" *ngIf="p.grade">
+            <span class="badge">Note : {{ p.grade }}</span>
+          </div>
+          <div class="cta" style="margin-top: 10px" (click)="$event.stopPropagation()">
+            <a
+              class="button"
+              *ngIf="p.links?.github"
+              [href]="p.links?.github"
+              target="_blank"
+              rel="noopener"
+              >Code</a
+            >
+            <a
+              class="button"
+              *ngIf="p.links?.demo"
+              [href]="p.links?.demo"
+              target="_blank"
+              rel="noopener"
+              >Démo</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -382,7 +409,7 @@
   <div class="container">
     <h2>Contact</h2>
     <p class="lead">
-      Envie de collaborer ou de me recruter ? Écrivez‑moi directement ou consultez mes profils.
+      Je peux faire quelques choses pour vous ? Contactez-moi directement ou consultez mes profils.
     </p>
     <div class="kv">
       <a
@@ -459,6 +486,7 @@
   *ngIf="selectedEducation as edu"
   [education]="edu"
   [projectNameById]="projectNameById.bind(this)"
+  [projectTechById]="projectTechById.bind(this)"
   (openProjectRequested)="openProject($event)"
   (close)="selectedEducation = undefined"
 ></app-education-modal>
@@ -468,3 +496,8 @@
   [project]="proj"
   (close)="selectedProject = undefined"
 ></app-project-modal>
+<app-experience-modal
+  *ngIf="selectedExperience as exp"
+  [exp]="exp"
+  (close)="selectedExperience = undefined"
+></app-experience-modal>

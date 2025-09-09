@@ -16,7 +16,15 @@
             "main": "src/main.ts",
             "polyfills": [],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico", 
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets/videos",
+                "output": "/assets/videos"
+              }
+            ],
             "styles": ["src/styles.css"],
             "scripts": []
           },
@@ -26,8 +34,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.5MB",
-                  "maximumError": "2.5MB"
+                  "maximumWarning": "500MB",
+                  "maximumError": "1GB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2KB",
+                  "maximumError": "4KB"
                 }
               ]
             }
