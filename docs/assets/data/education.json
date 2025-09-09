@@ -1,0 +1,250 @@
+[
+  {
+    "id": "m1-istic-il-2025",
+    "title": "Master 1 Informatique – Parcours Ingénierie Logicielle (ISTIC)",
+    "period": "09/2025 – 05/2026 (en cours)",
+    "location": "Rennes, France",
+    "summary": "Première année de master orientée renforcement du socle en conception et développement de logiciels, avec une pédagogie fortement axée projet. L’objectif est d’élever le niveau d’abstraction (architecture, modélisation, qualité) tout en consolidant les fondamentaux avancés vus en licence.",
+    "context": "Année de transition vers des pratiques \"entreprise\" : projets encadrés, outillage de qualité logicielle et ouverture sur les architectures modernes. Intérêt particulier pour l’ingénierie des composants, les architectures à services et l’ingénierie des modèles, avec un positionnement fort sur la maintenabilité, la fiabilité et la traçabilité.",
+    "image": "assets/images/education/logo_universite-de-rennes_depuis-janvier-2023.png",
+    "courses": [
+      "Architecture logicielle orientée objet",
+      "Bases de données (modélisation/optimisation)",
+      "Concurrence et systèmes d’exploitation",
+      "Analyse et conception formelle",
+      "Programmation dirigée par la syntaxe",
+      "Projet M1 (travail encadré)"
+    ],
+    "projects": [],
+    "highlights": [
+      "Socle M1 renforcé (conception, qualité, systèmes)",
+      "Approche par projets et méthodes agiles"
+    ]
+  },  
+  {
+    "id": "l3-laval",
+    "title": "Licence 3 Informatique – Université Laval (échange Univ. Rennes)",
+    "period": "09/2024 – 05/2025",
+    "location": "Québec, Canada",
+    "summary": "Développement web avancé, compilation, qualité logicielle, sécurité, innovation, spécification formelle.",
+    "context": "Une année d’étude vécue dans un cadre international, marquée par l’immersion dans le système universitaire québécois. Cet échange m’a permis de renforcer mon autonomie et ma capacité d’adaptation, de découvrir des méthodes pédagogiques orientées projet (sprints agiles, livrables itératifs, intégration continue) et de développer une vision élargie du génie logiciel, intégrant les enjeux de qualité, de sécurité et d’innovation technologique dans un contexte multiculturel.",
+    "image": "assets/images/education/logo_universite-laval.png",
+    "coursesGroups": [
+      {
+        "title": "Baccalauréat en Informatique",
+        "blocks": [
+          {
+            "title": "Session d'automne 2024",
+            "items": [
+              "Analyse et conception des systèmes orientés objets — IFT-2007",
+              "Compilation et interprétation — IFT-3101",
+              "Développement d'applications Web — GLO-3102",
+              "Qualité et métriques du logiciel — GLO-4002"
+            ]
+          },
+          {
+            "title": "Session d'hiver 2025",
+            "items": [
+              "Développement avancé d'applications Web — GLO-3112",
+              "Gestion de l'innovation technologique — SIO-2104",
+              "Savoir entreprendre : la passion de créer et d'agir — ENT-1000",
+              "Sécurité, contrôle et gestion du risque — SIO-2102",
+              "Spécification formelle et vérification de logiciels — GLO-3004"
+            ]
+          }
+        ]
+      }
+    ],
+    "projects": ["ugram", "ulavalgo", "compiler", "ufood"],
+    "mention": "Mention : Bien",
+    "highlights": [
+      "mention Bien",
+      "Expérience d’intégration dans une équipe multiculturelle",
+      "Approfondissement de la qualité logicielle, de la sécurité et de l’innovation"
+    ]
+  },
+  {
+    "id": "l12-rennes",
+    "title": "Licence 1 & 2 Informatique (ISTN) – Université de Rennes",
+    "period": "09/2022 – 05/2024",
+    "location": "Rennes, France",
+    "summary": "POO Java, algo & structures, bases, réseaux, web, génie logiciel.",
+    "context": "Deux années formatrices qui m’ont permis d’acquérir des bases solides en programmation orientée objet (Java), algorithmique, structures de données, bases de données et réseaux. Cette période a été marquée par des projets pratiques réalisés en équipe et selon des méthodes agiles, renforçant mes compétences techniques et collaboratives.",
+    "image": "assets/images/education/logo_universite-de-rennes_depuis-janvier-2023.png",
+    "coursesGroups": [
+      {
+        "title": "Portail Licence 1 informatique électronique",
+        "blocks": [
+          {
+            "title": "Semestre 1",
+            "items": [
+              "Informatique1",
+              "Découverte informatique électronique",
+              "Fondamentaux mathématiques",
+              "Mathématiques1",
+              "Spécialité Informatique1"
+            ]
+          },
+          {
+            "title": "Semestre 2",
+            "items": [
+              "Informatique2",
+              "Mathématiques2",
+              "Anglais",
+              "Projet professionnel et communication",
+              "Spécialité électronique numérique1",
+              "Spécialité informatique2"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Licence 2 Portail Informatique, Sciences et Technologies du Numérique (ISTN)",
+        "blocks": [
+          {
+            "title": "Semestre 3",
+            "items": [
+              "UE Algèbre Linéaire",
+              "UE Technologies WEB",
+              "UE Programmation Objet",
+              "UE Outils Formels pour l'Informatique",
+              "UE Electronique Numérique 2",
+              "UE Algorithmique 2",
+              "UE Réseaux",
+              "UE Innovation Numérique : tendances et méthodologies"
+            ]
+          },
+          {
+            "title": "Semestre 4",
+            "items": [
+              "UE Analyse 2",
+              "UE Outils Mathématiques",
+              "UE Bases de Données",
+              "UE Génie Logiciel",
+              "UE Data : Sciences des données",
+              "UE Calculabilité",
+              "UE LV1 Anglais",
+              "UE Projet personnel et professonnel de l'étudiant",
+              "UE Intelligence Artificielle"
+            ]
+          }
+        ]
+      }
+    ],
+    "mention": "Mention : Bien",
+    "projects": ["choixcarburant", "slay-the-spire"],
+    "highlights": ["Mention : Bien", "Projet en Scrum (Choix Carburant)"]
+  },
+  {
+    "id": "l1-educ",
+    "title": "Licence 1 Sciences de l’Éducation – Université Rennes 2",
+    "period": "09/2021 – 05/2022",
+    "location": "Rennes, France",
+    "summary": "Année de transition après mon arrivée en France, marquée par le développement de méthodes de travail universitaires et d’une rigueur académique. Cette formation m’a permis de renforcer mes compétences en communication, en organisation et en pédagogie, avant ma réorientation vers l’informatique.",
+    "context": "Formation pluridisciplinaire qui introduit les fondements des sciences de l’éducation (approches théoriques, pédagogiques, méthodologiques et sociales). L’année a permis d’acquérir une culture générale sur les processus d’apprentissage, les politiques éducatives et les inégalités scolaires, tout en développant des compétences transversales (méthodologie universitaire, langues, outils numériques).",
+    "image": "assets/images/education/logo_universite-rennes-2.png",
+    "mention": "Mention : Bien",
+    "coursesGroups": [
+      {
+        "title": "Semestre 1",
+        "items": [
+          "Introduction aux Sciences de l'Éducation",
+          "Perspectives disciplinaires en Sciences de l'Éducation",
+          "Processus d'apprentissages",
+          "Méthodologie accueil et disciplinaire",
+          "Maîtrise du français et du travail universitaire",
+          "Langue vivante (initiation / continuation)",
+          "Enseignements transversaux (UEDC/UEO)",
+          "Enseignements facultatifs (LV2, Engagement étudiant…)"
+        ]
+      },
+      {
+        "title": "Semestre 2",
+        "items": [
+          "Découverte des Politiques Éducatives",
+          "Inégalités éducatives",
+          "Enseignements de spécialisation (Action, Education & Formation ; Usage socio-éducatif des TIC ; Education et Enseignement)",
+          "Méthodologie disciplinaire",
+          "Maîtrise du français et du travail universitaire",
+          "Langue vivante (initiation ou continuation)",
+          "Enseignements transversaux (UEDC/UEO)",
+          "Enseignements facultatifs (LV2, Engagement étudiant…)"
+        ]
+      }
+    ],
+    "highlights": [
+      "Mention : Bien",
+      "Renforcement méthodologique et académique",
+      "Première immersion universitaire en France"
+    ]
+  },
+  {
+    "id": "double-gn",
+    "title": "Double cursus – ISSEG (Sciences de l’Éducation) & UBO (Génie Informatique)",
+    "period": "09/2019 – 05/2021",
+    "location": "Conakry, Guinée",
+    "summary": "Un double parcours fondateur, mêlant bases solides en génie informatique (algorithmique, C/C++, SQL, réseaux, Linux) et culture pédagogique (psychologie, sociologie, fondements et pédagogie). Cette période a posé les jalons de ma rigueur académique et de mon intérêt pour la conception de solutions utiles aux apprenants.",
+    "context": "Formation parallèle en sciences de l’éducation (ISSEG) et en génie informatique (UBO). Développement d’une double compétence : compréhension des mécanismes d’apprentissage et maîtrise des fondamentaux techniques (programmation, modélisation MERISE, systèmes, réseaux).",
+    "images": [
+      "assets/images/education/logo_isseg-guinee.png",
+      "assets/images/education/logo_universite-barack-obama-de-guinee.png"
+    ],
+    "mention": "Mention : Bien",
+    "coursesGroups": [
+      {
+        "title": "Génie Informatique — Licence 1",
+        "items": [
+          "Mathématiques 1",
+          "Comptabilité 1",
+          "Algorithme 1",
+          "Architectures des ordinateurs",
+          "MERISE (modélisation des données)",
+          "Langage C",
+          "Probabilités & Statistiques",
+          "HTML5 / CSS3"
+        ]
+      },
+      {
+        "title": "Génie Informatique — Licence 2",
+        "items": [
+          "Mathématiques 2",
+          "Initiation Réseaux",
+          "Économie générale",
+          "Algorithme 2",
+          "Langage SQL",
+          "Techniques de communication",
+          "Recherche opérationnelle",
+          "Initiation Linux",
+          "Langage C++",
+          "Économie d’entreprise"
+        ]
+      },
+      {
+        "title": "Sciences de l’Éducation — Licence 1 (Semestre 1)",
+        "items": [
+          "Fondements de l’éducation 1",
+          "Français 1",
+          "Découverte des sciences de l’éducation",
+          "Psychologie générale",
+          "Anatomie et physiologie du système nerveux"
+        ]
+      },
+      {
+        "title": "Sciences de l’Éducation — Licence 1 (Semestre 2)",
+        "items": [
+          "Sociologie générale",
+          "Français 2",
+          "Fondements de l’éducation 2",
+          "Pédagogie générale",
+          "Éducation citoyenne"
+        ]
+      }
+    ],
+    "highlights": [
+      "Mention : Bien",
+      "Socle technique (C/C++, SQL, MERISE, Linux, réseaux)",
+      "Culture pédagogique (psychologie, sociologie, pédagogie)"
+    ]
+  }
+  
+]

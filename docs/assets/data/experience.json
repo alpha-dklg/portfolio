@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Stagiaire Développeur Web",
+    "company": "Santigui du Moulin",
+    "period": "05/2025 – 07/2025",
+    "location": "Rennes, France",
+    "image": "assets/images/experiences/logo_santigui-du-moulin.png",
+    "summary": "Conception et développement d'un site e-commerce complet avec interface client et administrateur, gestion des produits, commandes et stocks.",
+    "bullets": [
+      "Conception & dev. e‑commerce (client & admin)",
+      "Objectifs : produits, commandes, stocks"
+    ],
+    "tech": ["Angular", "Spring Boot", "MySQL", "Docker", "AWS"],
+    "context": "Stage de deux mois réalisé au sein d’une TPE locale spécialisée dans l’agroalimentaire (élevage et vente de viandes). L’entreprise souhaitait amorcer sa transition numérique en lançant une plateforme e-commerce adaptée à ses besoins.",
+    "missions": [
+      "Conception et développement d’un site e-commerce complet incluant une interface client (affichage produits, gestion du panier, prise de commandes) et une interface administrateur (gestion des stocks, suivi des commandes).",
+      "Mise en place d’une architecture full-stack moderne (Angular + Spring Boot) avec base de données relationnelle (MySQL).",
+      "Intégration d’outils de déploiement et d’automatisation (Docker, AWS) pour préparer la mise en production."
+    ],
+    "results": [
+      "Réalisation en binôme d’un prototype fonctionnel livré à l’entreprise.",
+      "Structuration claire des modules produits / commandes / stocks pour répondre aux besoins métier.",
+      "Déploiement cloud avec AWS (ECS, RDS), consolidant mes compétences DevOps.",
+      "Développement de compétences en gestion de projet et communication client, grâce à un contact direct avec le dirigeant."
+    ],
+    "images": [
+      "assets/images/santigui-du-moulin_image-du-site-internet/page-daccueille.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/affichage-cartes-articles.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/cartes-de-produit-avec-pagination.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/connexion-client.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/connexion-admin.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/dashbord-admin.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/gestion-des-produits.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/ajouter-un-produit.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/gestion-des-commandes.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/parcours-de-commande.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/fiche-clients.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/gestion-articles-de-blog.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/paiement-carte-par-stripe.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/parametre-entreprise.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/gestion-vitrine-guinee.png",
+      "assets/images/santigui-du-moulin_image-du-site-internet/footer.png"
+    ],
+    "demoVideo": "https://youtu.be/UZODb3QAOaA"
+  }
+]

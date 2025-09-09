@@ -1,0 +1,68 @@
+[
+  {
+    "intro": "Étudiant en Master 1 d’ingénierie logicielle, je peux travailler sur le backend, le frontend ou en full-stack. J’aime concevoir des applications web élégantes et performantes, et je peux participer aussi à la conception de systèmes complexes en Java, Scala ou autres langages. Mon objectif est de créer des solutions fiables et utiles, en combinant rigueur technique et sens du design."
+  },
+  {
+    "label": "Java / Spring Boot & NestJS (Node.js)",
+    "level": "Bon niveau",
+    "icon": { "slug": "springboot", "pack": "simple-icons" },
+    "details": "Expérience en développement backend avec deux frameworks majeurs : Spring Boot pour Java et NestJS pour Node.js. Réalisation d’API REST, intégration avec MySQL/PostgreSQL, gestion des transactions, ORM (Prisma), tests unitaires (JUnit). Utilisation dans des projets académiques et professionnels, avec mise en production via Docker et AWS."
+  },
+  {
+    "label": "Angular / React",
+    "level": "Bon niveau",
+    "icon": { "slug": "angular", "pack": "simple-icons" },
+    "details": "Développement front-end complet avec Angular et React. Usage de TypeScript, JavaScript, HTML/CSS, Bootstrap et Tailwind pour concevoir des interfaces dynamiques, consommer des APIs et structurer des applications modulaires."
+  },
+  {
+    "label": "Bases de données (SQL & NoSQL)",
+    "level": "Intermédiaire",
+    "icon": { "slug": "database", "pack": "simple-icons" },
+    "details": "Conception de bases de données avec MERISE, requêtes SQL optimisées et gestion de transactions. Expérience avec MySQL et PostgreSQL pour le relationnel. Utilisation d’ORM (Prisma) pour simplifier la gestion des données."
+  },
+  {
+    "label": "Docker / CI/CD",
+    "level": "Intermédiaire",
+    "icon": { "slug": "docker", "pack": "simple-icons" },
+    "details": "Conteneurisation et orchestration (Docker Compose). Pipelines CI/CD avec GitHub Actions et GitLab CI pour automatiser les builds, tests et déploiements. Déploiement sur AWS ECS Fargate avec monitoring via CloudWatch."
+  },
+  {
+    "label": "AWS Cloud",
+    "level": "Intermédiaire",
+    "icon": { "slug": "amazonwebservices", "pack": "simple-icons" },
+    "details": "Expérience avec S3, EC2, ECS Fargate, RDS PostgreSQL, Route 53 et ECR. Mise en place de déploiements complets et gestion de certificats ACM. Familiarité avec la surveillance applicative (CloudWatch)."
+  },
+  {
+    "label": "Langages de programmation & paradigmes",
+    "level": "Intermédiaire",
+    "icon": { "slug": "code", "pack": "simple-icons" },
+    "details": "Bases solides en programmation orientée objet (Java), fonctionnelle (Scala) et impérative, complétées par des notions d’algorithmique bas niveau (C). Réalisations concrètes comprenant des applications desktop (Java Swing) ainsi que plusieurs projets académiques mettant en pratique divers paradigmes et concepts avancés."
+  },
+  {
+    "label": "Méthodologies & Qualité",
+    "level": "Bon niveau",
+    "icon": { "slug": "diagram-project", "pack": "simple-icons" },
+    "details": "Pratique des méthodes Agiles (Scrum), TDD, UML, architecture hexagonale et MVC. Application des principes Clean Code et SOLID pour améliorer la maintenabilité, la lisibilité et la qualité du code."
+  },
+  {
+    "label": "Outils & Environnements de développement",
+    "level": "Confirmé",
+    "icon": { "slug": "settings-2", "pack": "simple-icons" },
+    "details": "Maîtrise des environnements de développement et outils de collaboration : Git (GitHub, GitLab), VS Code, IntelliJ IDEA, Cursor. Utilisation de linters et formateurs (ESLint, Prettier) pour garantir la qualité du code. Gestion de projet avec Trello, suivi agile et documentation. Familiarité avec UML via Visual Paradigm."
+  },
+  {
+    "title": "Soft skills",
+    "items": [
+      "Curiosité",
+      "Rigueur",
+      "Autonomie",
+      "Travail en équipe",
+      "Communication claire",
+      "Adaptabilité à différents environnements",
+      "Leadership associatif",
+      "Esprit analytique",
+      "Résilience",
+      "Force de proposition"
+    ]
+  }
+]
