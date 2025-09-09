@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ng serve --open",
     "build": "ng build --configuration production",
-    "deploy": "ng build --configuration production --base-href=/<TON_REPO>/ --output-path docs",
+    "deploy": "ng build --configuration production --base-href=/portfolio/ --output-path docs",
     "lint": "eslint . --ext .ts,.html",
     "lint:fix": "eslint . --ext .ts,.html --fix",
     "format": "prettier --write .",

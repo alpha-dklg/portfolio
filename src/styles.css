@@ -191,6 +191,24 @@ body {
 .mobile-actions {
   display: none;
 }
+
+/* Amélioration du rendu des icônes sociales sur iOS */
+.mobile-actions .social-icon {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+.mobile-actions .social-icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
 .section {
   padding: 64px 0;
   border-top: 1px solid var(--border);
@@ -821,6 +839,43 @@ a.inline:hover {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+  }
+  
+  /* Styles spécifiques pour les icônes sociales mobiles sur iOS */
+  .mobile-actions .social-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .mobile-actions .social-icon svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  
+  /* Amélioration spécifique pour iOS Safari */
+  @supports (-webkit-touch-callout: none) {
+    .mobile-actions .social-icon {
+      -webkit-appearance: none;
+      appearance: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .mobile-actions .social-icon svg {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
   }
   .socials {
     display: none;

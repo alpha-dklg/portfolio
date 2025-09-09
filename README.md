@@ -6,7 +6,7 @@
 Mon portfolio personnel développé en **Angular 17**.  
 Il présente mon parcours, mes compétences et mes projets académiques.
 
-👉 En ligne : [https://madia472.github.io/portfolio](https://madia472.github.io/portfolio)
+👉 En ligne : [https://alpha-dklg.github.io/portfolio](https://alpha-dklg.github.io/portfolio)
 
 ---
 
