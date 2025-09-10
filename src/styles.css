@@ -61,35 +61,11 @@ body {
   box-shadow: none;
 }
 
-/* Solution alternative pour iOS Safari - effet parallax avec position fixed */
+/* iOS Safari fallback: background-attachment: fixed non supporté correctement */
 @supports (-webkit-touch-callout: none) {
   .nav.with-hero-bg {
-    position: relative;
     background-attachment: scroll;
     background-repeat: no-repeat;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  /* Créer un pseudo-élément fixe pour l'effet parallax sur iOS */
-  .nav.with-hero-bg::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
   }
 }
 .nav.with-hero-bg,

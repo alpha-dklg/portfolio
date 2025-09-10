@@ -20,33 +20,16 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  pointer-events: none;
 }
 
-/* Solution alternative pour iOS Safari - effet parallax avec position fixed */
+/* iOS Safari fallback: background-attachment: fixed non supporté correctement */
 @supports (-webkit-touch-callout: none) {
   .hero-visual {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    inset: 0;
     background-attachment: scroll;
     background-repeat: no-repeat;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  /* S'assurer que le contenu reste au-dessus */
-  .hero {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .intro-panel {
-    position: relative;
-    z-index: 2;
   }
 }
 .intro-panel {
