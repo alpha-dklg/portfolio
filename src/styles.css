@@ -60,6 +60,18 @@ body {
   border-bottom: 0 !important;
   box-shadow: none;
 }
+
+/* Fix pour iOS Safari - background-attachment: fixed ne fonctionne pas */
+@supports (-webkit-touch-callout: none) {
+  .nav.with-hero-bg {
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
 .nav.with-hero-bg,
 .nav.with-hero-bg .brand,
 .nav.with-hero-bg .links a {

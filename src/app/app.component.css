@@ -21,6 +21,18 @@
   background-position: center;
   background-attachment: fixed;
 }
+
+/* Fix pour iOS Safari - background-attachment: fixed ne fonctionne pas */
+@supports (-webkit-touch-callout: none) {
+  .hero-visual {
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
 .intro-panel {
   position: relative;
   z-index: 1;
