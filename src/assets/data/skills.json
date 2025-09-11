@@ -39,16 +39,16 @@
     "details": "Bases solides en programmation orientée objet (Java), fonctionnelle (Scala) et impérative, complétées par des notions d’algorithmique bas niveau (C). Réalisations concrètes comprenant des applications desktop (Java Swing) ainsi que plusieurs projets académiques mettant en pratique divers paradigmes et concepts avancés."
   },
   {
-    "label": "Méthodologies & Qualité",
+    "label": "Méthodologie Agile (Scrum) & Qualité",
     "level": "Bon niveau",
     "icon": { "slug": "diagram-project", "pack": "simple-icons" },
-    "details": "Pratique des méthodes Agiles (Scrum), TDD, UML, architecture hexagonale et MVC. Application des principes Clean Code et SOLID pour améliorer la maintenabilité, la lisibilité et la qualité du code."
+    "details": "Expérience confirmée en méthodologie Agile avec Scrum : gestion de sprints, backlog et travail en équipe. Mise en pratique des principes TDD, UML, architecture hexagonale et MVC. Application rigoureuse des bonnes pratiques Clean Code et SOLID pour assurer maintenabilité, lisibilité et qualité du code."
   },
   {
     "label": "Outils & Environnements de développement",
     "level": "Confirmé",
     "icon": { "slug": "settings-2", "pack": "simple-icons" },
-    "details": "Maîtrise des environnements de développement et outils de collaboration : Git (GitHub, GitLab), VS Code, IntelliJ IDEA, Cursor. Utilisation de linters et formateurs (ESLint, Prettier) pour garantir la qualité du code. Gestion de projet avec Trello, suivi agile et documentation. Familiarité avec UML via Visual Paradigm."
+    "details": "Maîtrise des environnements de développement et outils de collaboration : Git (GitHub, GitLab), VS Code, IntelliJ IDEA, Cursor. Utilisation de linters et formateurs (ESLint, Prettier) pour garantir la qualité du code. Gestion de projet avec Trello, Jira, suivi agile et documentation avec Confluence. Familiarité avec UML via Visual Paradigm."
   },
   {
     "title": "Soft skills",
