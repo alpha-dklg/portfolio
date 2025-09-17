@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, ViewChild, inject, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Education } from '../models';
 
@@ -9,10 +9,10 @@ import { Education } from '../models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="modal-overlay" (click)="onClose()">
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eduTitle" (click)="$event.stopPropagation()">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eduTitle" (click)="$event.stopPropagation()" #modalEl>
         <header>
           <h3 id="eduTitle">{{ education?.title }}</h3>
-          <button class="close-btn" (click)="onClose()">Fermer ✕</button>
+          <button class="close-btn" (click)="onClose()" aria-label="Fermer">✕</button>
         </header>
         <div class="content">
           <div class="small">{{ education?.period }} · {{ education?.location }}</div>
@@ -62,19 +62,27 @@ import { Education } from '../models';
             <li *ngFor="let h of education?.highlights">{{ h }}</li>
           </ul>
         </div>
-        <div class="actions">
+        <div class="actions proj-actions">
+          <button *ngIf="useExternalParcoursNav || canNavigate" class="button secondary nav-btn" (click)="onPrev()" aria-label="Précédent">‹</button>
           <button class="button secondary" (click)="onClose()">Fermer</button>
+          <button *ngIf="useExternalParcoursNav || canNavigate" class="button secondary nav-btn" (click)="onNext()" aria-label="Suivant">›</button>
         </div>
       </div>
     </div>
   `,
 })
-export class EducationModalComponent {
+export class EducationModalComponent implements OnChanges {
   @Input() education?: Education;
+  @Input() educationItems?: Education[];
+  @Input() useExternalParcoursNav: boolean = false;
   @Input() projectNameById?: (id: string) => string;
   @Input() projectTechById?: (id: string) => string[] | undefined;
   @Output() close = new EventEmitter<void>();
   @Output() openProjectRequested = new EventEmitter<string>();
+  @Output() prevRequested = new EventEmitter<void>();
+  @Output() nextRequested = new EventEmitter<void>();
+  private readonly cdr = inject(ChangeDetectorRef);
+  @ViewChild('modalEl') modalRef?: ElementRef<HTMLDivElement>;
 
   onClose() {
     this.close.emit();
@@ -89,6 +97,18 @@ export class EducationModalComponent {
     this.onClose();
   }
 
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(ev: KeyboardEvent) {
+    if (this.useExternalParcoursNav) {
+      if (ev.key === 'ArrowRight') this.onNext();
+      else if (ev.key === 'ArrowLeft') this.onPrev();
+      return;
+    }
+    if (!this.canNavigate) return;
+    if (ev.key === 'ArrowRight') this.next();
+    else if (ev.key === 'ArrowLeft') this.prev();
+  }
+
   // Helpers to support both grouped and simple course formats
   hasBlocks(group: any): boolean {
     return Array.isArray(group?.blocks) && group.blocks.length > 0;
@@ -101,6 +121,64 @@ export class EducationModalComponent {
   }
   itemsOf(group: any): string[] {
     return Array.isArray(group?.items) ? group.items : [];
+  }
+
+  // Navigation helpers
+  get canNavigate(): boolean {
+    return (this.educationItems?.length || 0) > 1 && this.indexInList() !== -1;
+  }
+
+  private indexInList(): number {
+    if (!this.education?.id || !this.educationItems?.length) return -1;
+    return this.educationItems.findIndex((e) => e.id === this.education?.id);
+  }
+
+  // Button handlers supporting external or internal navigation
+  onNext() {
+    if (this.useExternalParcoursNav) this.nextRequested.emit();
+    else this.next();
+  }
+
+  onPrev() {
+    if (this.useExternalParcoursNav) this.prevRequested.emit();
+    else this.prev();
+  }
+
+  private list(): Education[] { return Array.isArray(this.educationItems) ? this.educationItems : []; }
+
+  next() {
+    const list = this.list();
+    const n = list.length;
+    const idx = this.indexInList();
+    if (n > 1 && idx !== -1) {
+      this.education = list[(idx + 1) % n];
+      this.cdr.markForCheck();
+      this.scrollModalTop();
+    }
+  }
+
+  prev() {
+    const list = this.list();
+    const n = list.length;
+    const idx = this.indexInList();
+    if (n > 1 && idx !== -1) {
+      this.education = list[(idx - 1 + n) % n];
+      this.cdr.markForCheck();
+      this.scrollModalTop();
+    }
+  }
+
+  private scrollModalTop(): void {
+    const el = this.modalRef?.nativeElement;
+    if (el) {
+      el.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['education'] && !changes['education'].firstChange) {
+      this.scrollModalTop();
+    }
   }
 }
 

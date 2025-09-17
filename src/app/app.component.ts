@@ -71,6 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isAtTop = true;
   private readonly heroBgThreshold = 80;
   readonly defaultParcoursImage = 'assets/images/img_banniere.png';
+  private bodyScrollLockCount = 0;
 
   // Parcours filters/sorting
   parcoursFilter: 'all' | 'education' | 'experience' = 'all';
@@ -167,12 +168,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   openEducation(id: string) {
     this.selectedEducation = this.education.find((e) => e.id === id);
+    this.lockBodyScroll();
   }
   openProject(id: string) {
     this.selectedProject = this.projects.find((p) => p.id === id);
+    this.lockBodyScroll();
   }
   openExperience(title: string, company: string) {
     this.selectedExperience = this.experience.find((e) => e.title === title && e.company === company);
+    this.lockBodyScroll();
   }
 
   onParcoursItemClick(item: any) {
@@ -181,6 +185,32 @@ export class AppComponent implements OnInit, OnDestroy {
     } else if (item.type === 'experience') {
       this.openExperience(item.title, item.company || '');
     }
+  }
+
+  navigateParcours(direction: 1 | -1): void {
+    const list = this.filteredSortedTimeline;
+    if (!list.length) return;
+    // Determine current index based on whichever modal is open
+    let curIdx = -1;
+    if (this.selectedEducation) {
+      curIdx = list.findIndex((x) => x.type === 'education' && x.refId === this.selectedEducation?.id);
+    } else if (this.selectedExperience) {
+      curIdx = list.findIndex((x) => x.type === 'experience' && x.title === this.selectedExperience?.title && x.company === this.selectedExperience?.company);
+    } else {
+      return;
+    }
+    if (curIdx === -1) return;
+    const n = list.length;
+    const nextIdx = (curIdx + (direction === 1 ? 1 : -1) + n) % n;
+    const target = list[nextIdx];
+    if (target.type === 'education' && target.refId) {
+      this.selectedExperience = undefined;
+      this.openEducation(target.refId);
+    } else if (target.type === 'experience') {
+      this.selectedEducation = undefined;
+      this.openExperience(target.title, target.company || '');
+    }
+    this.cdr.markForCheck();
   }
   closeModals() {
     this.selectedEducation = undefined;
@@ -194,6 +224,19 @@ export class AppComponent implements OnInit, OnDestroy {
   closeAvatar() {
     this.showAvatarModal = false;
     this.cdr.markForCheck();
+  }
+
+  closeProject() {
+    this.selectedProject = undefined;
+    this.unlockBodyScroll();
+  }
+  closeEducation() {
+    this.selectedEducation = undefined;
+    this.unlockBodyScroll();
+  }
+  closeExperience() {
+    this.selectedExperience = undefined;
+    this.unlockBodyScroll();
   }
 
   toggleNav() {
@@ -534,6 +577,21 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.autoScrollIntervalId) {
       clearInterval(this.autoScrollIntervalId);
       this.autoScrollIntervalId = undefined;
+    }
+  }
+
+  // Body scroll lock/unlock to freeze background while a modal is open
+  private lockBodyScroll(): void {
+    // Set lock once while any modal is open; avoid accumulating count during in-modal navigation
+    if (this.bodyScrollLockCount === 0) {
+      document.body.style.overflow = 'hidden';
+    }
+    this.bodyScrollLockCount = 1;
+  }
+  private unlockBodyScroll(): void {
+    this.bodyScrollLockCount = Math.max(0, this.bodyScrollLockCount - 1);
+    if (this.bodyScrollLockCount === 0) {
+      document.body.style.overflow = '';
     }
   }
 }

@@ -485,19 +485,28 @@
 <app-education-modal
   *ngIf="selectedEducation as edu"
   [education]="edu"
+  [educationItems]="education"
+  [useExternalParcoursNav]="true"
   [projectNameById]="projectNameById.bind(this)"
   [projectTechById]="projectTechById.bind(this)"
   (openProjectRequested)="openProject($event)"
-  (close)="selectedEducation = undefined"
+  (prevRequested)="navigateParcours(-1)"
+  (nextRequested)="navigateParcours(1)"
+  (close)="closeEducation()"
 ></app-education-modal>
 
 <app-project-modal
   *ngIf="selectedProject as proj"
   [project]="proj"
-  (close)="selectedProject = undefined"
+  [projects]="featuredProjects"
+  (close)="closeProject()"
 ></app-project-modal>
 <app-experience-modal
   *ngIf="selectedExperience as exp"
   [exp]="exp"
-  (close)="selectedExperience = undefined"
+  [experienceItems]="experience"
+  [useExternalParcoursNav]="true"
+  (prevRequested)="navigateParcours(-1)"
+  (nextRequested)="navigateParcours(1)"
+  (close)="closeExperience()"
 ></app-experience-modal>

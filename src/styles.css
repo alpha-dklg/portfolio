@@ -572,10 +572,20 @@ body {
 .exp-counter { text-align: center; color: var(--muted); }
 .modal .actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 8px;
   padding: 16px;
   border-top: 1px solid var(--border);
+}
+/* When actions row also has proj-actions, stretch nav buttons to extremes */
+.modal .actions.proj-actions {
+  justify-content: space-between;
+  align-items: center;
+}
+.proj-actions .nav-btn {
+  min-width: 44px;
+  display: inline-flex;
+  justify-content: center;
 }
 .close-btn {
   background: transparent;
