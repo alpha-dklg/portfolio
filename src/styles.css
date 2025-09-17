@@ -36,6 +36,12 @@ body {
   line-height: 1.5;
   scroll-behavior: smooth;
 }
+
+/* Light yellow background while scrolling */
+body.scrolling {
+  background: #F0F8FF; /* bleu très léger */
+  transition: background 0.2s ease;
+}
 .container {
   max-width: none;
   width: 100%;

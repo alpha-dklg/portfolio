@@ -78,6 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
   parcoursSort: 'asc' | 'desc' = 'desc';
   carouselIndex: Record<string, number> = {};
   private autoScrollIntervalId?: any;
+  private scrollBgTimeoutId?: any;
 
   get currentYear(): number {
     return new Date().getFullYear();
@@ -140,6 +141,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.stopCarouselAuto();
+    if (this.scrollBgTimeoutId) {
+      clearTimeout(this.scrollBgTimeoutId);
+      this.scrollBgTimeoutId = undefined;
+    }
+    document.body.classList.remove('scrolling');
   }
 
   @HostListener('document:keydown.escape')
@@ -153,6 +159,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.showScrollTop = window.scrollY > threshold;
     this.isAtTop = window.scrollY <= this.heroBgThreshold;
     this.cdr.markForCheck();
+
+    // Temporarily tint background while scrolling
+    document.body.classList.add('scrolling');
+    if (this.scrollBgTimeoutId) {
+      clearTimeout(this.scrollBgTimeoutId);
+    }
+    this.scrollBgTimeoutId = setTimeout(() => {
+      document.body.classList.remove('scrolling');
+      this.scrollBgTimeoutId = undefined;
+    }, 200);
 
     const firstHeading = document.querySelector('section[id] h2') as HTMLElement | null;
     if (firstHeading) {
