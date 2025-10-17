@@ -1,16 +1,41 @@
-# 🌐 Portfolio – Mamadou Alpha Diallo
+## Portfolio – Mamadou Alpha Diallo
 
-[![Angular](https://img.shields.io/badge/Angular-17-DD0031?logo=angular&logoColor=white)](https://angular.dev/) 
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-181717?logo=github)](https://pages.github.com/)
+En ligne: https://alpha-dklg.github.io/portfolio
 
-Mon portfolio personnel développé en **Angular 17**.  
-Il présente mon parcours, mes compétences et mes projets académiques.
+### Prérequis
+- Node.js 18+ recommandé
+- npm
 
-👉 En ligne : [https://alpha-dklg.github.io/portfolio](https://alpha-dklg.github.io/portfolio)
-
----
-
-## 🚀 Démarrage
+### Démarrer en local
 ```bash
 npm install
 npm start
+```
+
+L'application est servie sur http://localhost:4200/.
+
+### Build (production)
+```bash
+npm run build
+```
+Le build est généré dans `dist/mad-portfolio`.
+
+### Déploiement (GitHub Pages)
+```bash
+npm run deploy
+```
+Cette commande génère le site dans `docs/` avec `--base-href=/portfolio/`.
+
+### Mettre à jour le contenu
+- Données: modifier les fichiers JSON dans `src/assets/data/` (`about.json`, `skills.json`, `projects.json`, etc.)
+- Images: ajouter/mettre à jour dans `src/assets/images/`
+- CV: remplacer `src/assets/cv/Alternance_developpeur-full-stack.pdf`
+
+### Scripts utiles
+- `npm run lint` / `npm run lint:fix`: lint du code
+- `npm run format` / `npm run format:check`: formatage Prettier
+
+### Stack technique
+- Angular 17, TypeScript, RxJS
+- Outils: Angular CLI, ESLint + @angular-eslint, Prettier
+- Déploiement: GitHub Pages (sortie dans `docs/`)
