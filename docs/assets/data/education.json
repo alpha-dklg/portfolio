@@ -4,21 +4,59 @@
     "title": "Master 1 Informatique – Parcours Ingénierie Logicielle (ISTIC)",
     "period": "09/2025 – 05/2026 (en cours)",
     "location": "Rennes, France",
-    "summary": "Première année de master orientée renforcement du socle en conception et développement de logiciels, avec une pédagogie fortement axée projet. L’objectif est d’élever le niveau d’abstraction (architecture, modélisation, qualité) tout en consolidant les fondamentaux avancés vus en licence.",
-    "context": "Année de transition vers des pratiques \"entreprise\" : projets encadrés, outillage de qualité logicielle et ouverture sur les architectures modernes. Intérêt particulier pour l’ingénierie des composants, les architectures à services et l’ingénierie des modèles, avec un positionnement fort sur la maintenabilité, la fiabilité et la traçabilité.",
+    "summary": "Année de formation intensive couvrant l'ensemble du spectre de l'ingénierie logicielle : architecture, systèmes, web, données, méthodes formelles et intelligence artificielle. Formation conçue comme une rampe d'accélération pour devenir un software engineer polyvalent et opérationnel.",
+    "context": "Formation structurée autour d'un tronc commun solide (algorithmes objets, bases de données, concurrence & systèmes, programmation distribuée), d'une spécialisation en ingénierie logicielle (analyse formelle, web engineering, programmation dirigée par la syntaxe) et d'options ciblées (IA, programmation parallèle). L'accent est mis sur la conception d'architectures complexes, la qualité du code, la maîtrise des systèmes distribués et l'intégration de technologies modernes (IA, cloud, microservices). Le parcours inclut un projet annuel ambitieux (CorrectExam avec intégration IA/LLM) et se conclut par un stage de plusieurs mois en entreprise à partir de mai 2026.",
     "image": "assets/images/education/logo_universite-de-rennes_depuis-janvier-2023.png",
-    "courses": [
-      "Architecture logicielle orientée objet",
-      "Bases de données (modélisation/optimisation)",
-      "Concurrence et systèmes d’exploitation",
-      "Analyse et conception formelle",
-      "Programmation dirigée par la syntaxe",
-      "Projet M1 (travail encadré)"
+    "coursesGroups": [
+      {
+        "title": "Tronc Commun : Socle Ingénieur Logiciel",
+        "blocks": [
+          {
+            "title": "Semestres 1 & 2",
+            "items": [
+              "ALO – Algorithmes Logiciels à Objets : conception orientée objet avancée, design patterns et architectures scalables",
+              "BDD – Bases de Données : modélisation, optimisation de requêtes, comparaison de SGBD",
+              "CSE – Concurrence & Systèmes d'Exploitation : threads, synchronisation, deadlocks, gestion de ressources",
+              "IPD – Programmation Distribuée (S2) : architectures distribuées, communications inter-processus, tolérance aux pannes",
+              "Anglais technique : communication professionnelle et vocabulaire métier",
+              "Projet annuel CorrectExam : intégration de modules IA (RAG, LLMs, reconnaissance d'écriture) dans une plateforme de correction de copies numériques",
+              "Stage en entreprise (à partir du 11 mai 2026)"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Mineure IL : Spécialisation Ingénierie Logicielle",
+        "blocks": [
+          {
+            "title": "Semestres 1 & 2",
+            "items": [
+              "ACF – Analyse et Conception Formelles : logiques, preuves, langages formels, outils de vérification (Isabelle/HOL)",
+              "WE – Web Engineering : architectures web modernes, bonnes pratiques full-stack, frameworks avancés",
+              "PDS – Programmation Dirigée par la Syntaxe (S2) : langages formels, parseurs, AST, transformations de code"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Options : Ouverture & Montée en Puissance",
+        "blocks": [
+          {
+            "title": "Semestre 2",
+            "items": [
+              "IA – Intelligence Artificielle : bases de l'IA, algorithmes de recherche, heuristiques, modèles modernes",
+              "PPAR – Programmation Parallèle : exploitation du parallélisme, threads avancés, synchronisation, architectures multi-cœurs"
+            ]
+          }
+        ]
+      }
     ],
     "projects": [],
     "highlights": [
-      "Socle M1 renforcé (conception, qualité, systèmes)",
-      "Approche par projets et méthodes agiles"
+      "Formation complète couvrant architecture, systèmes, web, données, formel et IA",
+      "Projet annuel CorrectExam avec intégration IA (RAG, LLMs, reconnaissance d'écriture)",
+      "Spécialisation en architectures scalables et systèmes distribués",
+      "Stage en entreprise à partir de mai 2026"
     ]
   },  
   {

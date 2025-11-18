@@ -29,7 +29,7 @@ Cette commande génère le site dans `docs/` avec `--base-href=/portfolio/`.
 ### Mettre à jour le contenu
 - Données: modifier les fichiers JSON dans `src/assets/data/` (`about.json`, `skills.json`, `projects.json`, etc.)
 - Images: ajouter/mettre à jour dans `src/assets/images/`
-- CV: remplacer `src/assets/cv/Alternance_developpeur-full-stack.pdf`
+- CV: remplacer `src/assets/cv/CV_Mamadou-Alpha.Diallo_Stage.Software-Engineer.pdf`
 
 ### Scripts utiles
 - `npm run lint` / `npm run lint:fix`: lint du code
